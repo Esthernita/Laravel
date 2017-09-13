@@ -33,7 +33,6 @@ Route::get('/post/{id}/{name}', function ($id, $nama) {
     return "This is post Number ".$id." ".$nama;
 });
 
-
 Route::get('/admin/post/example', array('as'=>'admin.home', function () {
 	$url = route('admin.home');
     return "This url is : ".$url;
