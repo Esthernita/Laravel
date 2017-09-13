@@ -61,6 +61,20 @@ class PostController extends Controller
         //
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function show_post($id)
+    {
+        return view('post')->with('id', $id);
+    }
+    
+    public function show_post2($id, $nama, $jurusan)
+    {
+        return view('post', compact('id', 'nama', 'jurusan'));
+    }
     /**
      * Update the specified resource in storage.
      *
