@@ -12,5 +12,29 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Hi Guys ...";
+    // return view('welcome');
 });
+Route::get('/admin/post', function () {
+    return "Admin Is Here!";
+    // return view('welcome');
+});
+Route::get('/contact', function () {
+    return "Hi, I am Contact";
+});
+
+Route::get('/about', function () {
+    return "Hi about page";
+});
+Route::get('/post/{id}', function ($id) {
+    return "This is post Number ".$id;
+});
+Route::get('/post/{id}/{name}', function ($id, $nama) {
+    return "This is post Number ".$id." ".$nama;
+});
+
+
+Route::get('/admin/post/example', array('as'=>'admin.home', function () {
+	$url = route('admin.home');
+    return "This url is : ".$url;
+}));
