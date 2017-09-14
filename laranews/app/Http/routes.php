@@ -45,9 +45,9 @@ Route::get('/contact', 'PostController@contact');
 Route::get('/post/{id}', 'PostController@show_post');
 Route::get('/post/{id}/{nama}/{jurusan}', 'PostController@show_post2');
 
-Route::get('/insert', function(){
+Route::get('/insert/{title}/{content}', function($title, $content){
     DB::insert("INSERT INTO posts (title,content) value(?,?)",
-        ['PHP with Laravel', 'Laravel is The Best thing That Happen to PHP']);
+        [$title, $content]);
 });
 
 Route::get('/read/{id}', function($id){
