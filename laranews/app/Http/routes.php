@@ -1,5 +1,6 @@
 <?php
 
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,7 +47,7 @@ Route::get('/post/{id}', 'PostController@show_post');
 Route::get('/post/{id}/{nama}/{jurusan}', 'PostController@show_post2');
 
 Route::get('/insert/{title}/{content}', function($title, $content){
-    DB::insert("INSERT INTO posts (title,content) value(?,?)",
+    DB::insert("INSERT INTO posts (title,content,created_at) values(?,?,NOW())",
         [$title, $content]);
 });
 
@@ -66,6 +67,19 @@ Route::get('/update/{id}/{title}', function($id, $title){
 Route::get('/delete/{id}', function($id){
     $deleted = DB::delete("DELETE FROM posts where id=?",[$id]);
     return $deleted;
+});
+
+
+Route::get('/read/post/1', function(){
+    $posts = Post::all();
+    foreach($posts as $post){
+        print $post->title.", ";
+    }
+});
+
+Route::get('/find/{id}', function($id){
+    $posts = Post::find($id);
+    return $posts->title;
 });
 
 
