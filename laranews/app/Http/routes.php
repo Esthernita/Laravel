@@ -58,4 +58,9 @@ Route::get('/read/{id}', function($id){
     return $res;
 });
 
+Route::get('/update/{id}/{title}', function($id, $title){
+    $updated = DB::update("UPDATE posts set title = ? where id=?",[$title,$id]);
+    return $updated;
+});
+
 
