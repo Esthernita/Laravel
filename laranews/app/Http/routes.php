@@ -45,4 +45,17 @@ Route::get('/contact', 'PostController@contact');
 Route::get('/post/{id}', 'PostController@show_post');
 Route::get('/post/{id}/{nama}/{jurusan}', 'PostController@show_post2');
 
+Route::get('/insert', function(){
+    DB::insert("INSERT INTO posts (title,content) value(?,?)",
+        ['PHP with Laravel', 'Laravel is The Best thing That Happen to PHP']);
+});
+
+Route::get('/read/{id}', function($id){
+    $res = DB::select("SELECT * from posts where id=?",[$id]);
+    // foreach($res as $post){
+    //     return $post->title;
+    // }
+    return $res;
+});
+
 
