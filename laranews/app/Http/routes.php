@@ -95,3 +95,6 @@ Route::get('/basicinsert', function(){
 });
 
 
+Route::get('/create', function(){
+    Post::create(['title' => 'Create Method', 'content' => 'Create Method Content']);
+});
