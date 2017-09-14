@@ -82,4 +82,9 @@ Route::get('/find/{id}', function($id){
     return $posts->title;
 });
 
+Route::get('/findwhere', function(){
+    $posts1 = Post::where('is_admin', 0)->orderBy('id', 'desc')->take(1)->get();
+    return $posts1;
+});
+
 
