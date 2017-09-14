@@ -63,4 +63,9 @@ Route::get('/update/{id}/{title}', function($id, $title){
     return $updated;
 });
 
+Route::get('/delete/{id}', function($id){
+    $deleted = DB::delete("DELETE FROM posts where id=?",[$id]);
+    return $deleted;
+});
+
 
