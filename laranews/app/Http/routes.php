@@ -87,4 +87,11 @@ Route::get('/findwhere', function(){
     return $posts1;
 });
 
+Route::get('/basicinsert', function(){
+    $post = new Post;
+    $post->title = 'Basic insert';
+    $post->content = 'Basic insert content';
+    $post->save();
+});
+
 
